@@ -13,13 +13,11 @@ sayHello() //=> Hello!
 -----------------------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
 
-
 function sayHello() {
-    return "Hello!";
-  }
-  
-  
-  /*-----------------------------------------------------------------------------
+  return "Hello!";
+}
+
+/*-----------------------------------------------------------------------------
   Challenge: 01-addOne
   
   Difficulty: Basic
@@ -34,13 +32,14 @@ function sayHello() {
   addOne(1) //=> 2
   addOne(-5) //=> -4
   -----------------------------------------------------------------------------*/
-  // Your solution for 01-addOne here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 01-addOne here:
+
+function addOne(n) {
+  return n + 1;
+}
+
+console.log(addOne(2));
+/*-----------------------------------------------------------------------------
   Challenge: 02-addTwoNumbers
   
   Difficulty: Basic
@@ -58,13 +57,15 @@ function sayHello() {
   addTwoNumbers(0, 0) //=> 0
   addTwoNumbers('Hello', 5) //=> NaN
   -----------------------------------------------------------------------------*/
-  // Your solution for 02-addTwoNumbers here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 02-addTwoNumbers here:
+
+function addTwo(n1, n2) {
+  return n1 + n2;
+}
+
+console.log(addTwo(1, 2));
+
+/*-----------------------------------------------------------------------------
   Challenge: 03-sumNumbers
   
   Difficulty: Basic
@@ -82,13 +83,19 @@ function sayHello() {
   sumNumbers([2, 10, -5]) //=> 7
   sumNumbers([]) //=> 0
   -----------------------------------------------------------------------------*/
-  // Your solution for 03-sumNumbers here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 03-sumNumbers here:
+
+function sumNumbers(numbers) {
+  let result = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    result += numbers[i];
+  }
+
+  return result;
+}
+console.log(sumNumbers([1, 2, 3, 4]));
+
+/*-----------------------------------------------------------------------------
   Challenge: 04-addList
   
   Difficulty: Basic
@@ -106,13 +113,19 @@ function sayHello() {
   addList(1,50,1.23) //=> 52.23
   addList(7,-12) //=> -5
   -----------------------------------------------------------------------------*/
-  // Your solution for 04-addList here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 04-addList here:
+
+function addList(...numbers) {
+
+  if (numbers.lenght === 0) {
+    return 0;
+  }
+
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log('Add List ',addList(1, 2, 3, 4));
+/*-----------------------------------------------------------------------------
   Challenge: 05-computeRemainder
   
   Difficulty: Basic
@@ -133,13 +146,19 @@ function sayHello() {
   computeRemainder(4,0) //=> Infinity
   computeRemainder(10.5, 3) //=> 1.5
   -----------------------------------------------------------------------------*/
-  // Your solution for 05-computeRemainder here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 05-computeRemainder here:
+function computeRemainder(dividend, divisor) {
+  if (divisor === 0) return Infinity;
+
+  while (dividend >= divisor) {
+    dividend -= divisor;
+  }
+
+  return dividend;
+}
+
+console.log('computeReminder:',computeRemainder(10, 2));
+/*-----------------------------------------------------------------------------
   Challenge: 06-range
   
   Difficulty: Basic
@@ -160,13 +179,21 @@ function sayHello() {
   range(1,1) //=> []
   range(5,2) //=> "First argument must be less than second"
   -----------------------------------------------------------------------------*/
-  // Your solution for 06-range here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 06-range here:
+function range(start, end) {
+  if (start > end) {
+    return "First argument must be less than second";
+  }
+
+  let result = [];
+  for (let i = start; i < end; i++) {
+    result.push(i);
+  }
+  return result;
+}
+
+console.log('range:',range(1, 5));
+/*-----------------------------------------------------------------------------
   Challenge: 07-reverseUpcaseString
   
   Difficulty: Basic
@@ -182,13 +209,15 @@ function sayHello() {
   
   reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES" 
   -----------------------------------------------------------------------------*/
-  // Your solution for 07-reverseUpcaseString here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 07-reverseUpcaseString here:
+function reverseUpcaseString(str) {
+  let reversed = str.split("").reverse().join("").toUpperCase();
+
+  return reversed;
+}
+
+console.log('reversedUppderString:',reverseUpcaseString("Aleks"));
+/*-----------------------------------------------------------------------------
   Challenge: 08-removeEnds
   
   Difficulty: Basic
@@ -204,13 +233,21 @@ function sayHello() {
   removeEnds('SEB Rocks!') //=> "EB Rocks"
   removeEnds('a') //=> "" (empty string)
   -----------------------------------------------------------------------------*/
-  // Your solution for 08-removeEnds here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 08-removeEnds here:
+function removeEnds(str) {
+
+  let arr = str.split("");
+  if(arr.lenght < 3){
+    return arr = []
+  }
+  arr.pop();
+  arr.shift();
+
+  return arr.join("");
+}
+
+console.log('remove:',removeEnds("abc"));
+/*-----------------------------------------------------------------------------
   Challenge: 09-charCount
   
   Difficulty: Basic
@@ -246,13 +283,22 @@ function sayHello() {
     '!': 1 
   }
   -----------------------------------------------------------------------------*/
-  // Your solution for 09-charCount here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 09-charCount here:
+function charCount(str) {
+  const count = {};
+
+  for (let char of str) {
+    if (count[char]) {
+      count[char] += 1;
+    } else {
+      count[char] = 1;
+    }
+  }
+
+  return count;
+}
+console.log(charCount("Hello"));
+/*-----------------------------------------------------------------------------
   Challenge: 10-formatWithPadding
   
   Difficulty: Basic
@@ -276,13 +322,23 @@ function sayHello() {
   formatWithPadding(42, '*', 10) //=> "********42"
   formatWithPadding(1234, '*', 3) //=> "1234"
   -----------------------------------------------------------------------------*/
-  // Your solution for 10-formatWithPadding here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 10-formatWithPadding here:
+function formatWithPadding(num, paddingChar, length) {
+  const numStr = num.toString();
+
+
+  if (numStr.length >= length) {
+    return numStr;
+  }
+
+  const paddingNeeded = length - numStr.length;
+
+  const paddingString = paddingChar.repeat(paddingNeeded);
+
+  return paddingString + numStr;
+}
+console.log(formatWithPadding(123, '*', 5))
+/*-----------------------------------------------------------------------------
   Challenge: 11-isPalindrome
   
   Difficulty: Intermediate
@@ -304,13 +360,9 @@ function sayHello() {
   isPalindrome('A nut for a jar of tuna') //=> true
   isPalindrome('') //=> true
   -----------------------------------------------------------------------------*/
-  // Your solution for 11-isPalindrome here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 11-isPalindrome here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 12-hammingDistance
   
   Difficulty: Intermediate
@@ -334,13 +386,9 @@ function sayHello() {
   hammingDistance('!!!!', '****') //=> 4
   hammingDistance('abc', 'ab') //=> NaN
   -----------------------------------------------------------------------------*/
-  // Your solution for 12-hammingDistance here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 12-hammingDistance here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 13-mumble
   
   Difficulty: Intermediate
@@ -361,13 +409,9 @@ function sayHello() {
   mumble('121') //=> '1-22-111'
   mumble('!A 2') //=> '!-AA-   -2222'
   -----------------------------------------------------------------------------*/
-  // Your solution for 13-mumble here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 13-mumble here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 14-fromPairs
   
   Difficulty: Intermediate
@@ -389,13 +433,9 @@ function sayHello() {
   fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) 
   //=> { name: "Sally", age: 24 }
   -----------------------------------------------------------------------------*/
-  // Your solution for 14-fromPairs here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 14-fromPairs here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 15-mergeObjects
   
   Difficulty: Intermediate
@@ -420,13 +460,9 @@ function sayHello() {
   mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}) 
   //=> {a: 1, b: 22, c: 3, d: 44}
   -----------------------------------------------------------------------------*/
-  // Your solution for 15-mergeObjects here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 15-mergeObjects here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 16-findHighestPriced
   
   Difficulty: Intermediate
@@ -462,13 +498,9 @@ function sayHello() {
   ])
   //=> { sku: 'b2', price: 50 }
   -----------------------------------------------------------------------------*/
-  // Your solution for 16-findHighestPriced here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 16-findHighestPriced here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 17-mapArray
   
   Difficulty: Intermediate
@@ -500,13 +532,9 @@ function sayHello() {
   } )
   //=> ["1 - rose", "2 - tulip", "3 - daisy"]
   -----------------------------------------------------------------------------*/
-  // Your solution for 17-mapArray here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 17-mapArray here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 18-reduceArray
   
   Difficulty: Intermediate
@@ -551,13 +579,9 @@ function sayHello() {
   }, {} )
   //=> {"Yes": 2, "No": 1, "Maybe": 1}
   -----------------------------------------------------------------------------*/
-  // Your solution for 18-reduceArray here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 18-reduceArray here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 19-flatten
   
   Difficulty: Intermediate
@@ -580,13 +604,9 @@ function sayHello() {
   flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
   //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
   -----------------------------------------------------------------------------*/
-  // Your solution for 19-flatten here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 19-flatten here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 20-primeFactors
   
   Difficulty: Intermediate
@@ -615,13 +635,9 @@ function sayHello() {
   
   Hint: Code a nested isPrime(n) helper function that returns true if n is prime, otherwise it returns false
   -----------------------------------------------------------------------------*/
-  // Your solution for 20-primeFactors here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 20-primeFactors here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 21-isPrime
   
   Difficulty: Intermediate
@@ -642,13 +658,9 @@ function sayHello() {
   isPrime(29) //=> true
   isPrime(200) //=> false
   -----------------------------------------------------------------------------*/
-  // Your solution for 21-isPrime here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 21-isPrime here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 22-intersection
   
   Difficulty: Intermediate
@@ -671,13 +683,9 @@ function sayHello() {
   intersection(['a', 1], [true, 'a', 15]) //=> ['a']
   intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
   -----------------------------------------------------------------------------*/
-  // Your solution for 22-intersection here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 22-intersection here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 23-balancedBrackets
   
   Difficulty: Intermediate
@@ -702,13 +710,9 @@ function sayHello() {
   balancedBrackets( '[(])' ) // => false
   balancedBrackets( '[({}[])]' ) // => true
   -----------------------------------------------------------------------------*/
-  // Your solution for 23-balancedBrackets here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 23-balancedBrackets here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 24-isWinningTicket
   
   Difficulty:Intermediate
@@ -740,13 +744,9 @@ function sayHello() {
   isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
   isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
   -----------------------------------------------------------------------------*/
-  // Your solution for 24-isWinningTicket here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 24-isWinningTicket here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 25-getNumForIP
   
   Difficulty: Intermediate
@@ -784,13 +784,9 @@ function sayHello() {
   getNumForIP( '192.156.99.15' ) // => 3231474447
   getNumForIP( '10.0.0.1' ) // => 167772161
   -----------------------------------------------------------------------------*/
-  // Your solution for 25-getNumForIP here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 25-getNumForIP here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 26-toCamelCase
   
   Difficulty: Intermediate
@@ -817,13 +813,9 @@ function sayHello() {
   toCamelCase( 'Mama-mia' ) // => 'MamaMia'
   toCamelCase( 'A_b_c' ) // => 'ABC'
   -----------------------------------------------------------------------------*/
-  // Your solution for 26-toCamelCase here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 26-toCamelCase here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 27-countTheBits
   
   Difficulty: Intermediate
@@ -852,13 +844,9 @@ function sayHello() {
   countTheBits( 255 ) //=> 8
   countTheBits( 65535 ) //=> 16
   -----------------------------------------------------------------------------*/
-  // Your solution for 27-countTheBits here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 27-countTheBits here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 28-gridTrip
   
   Difficulty: Intermediate
@@ -892,13 +880,9 @@ function sayHello() {
   gridTrip( [10, 5], 'D5L15U2' ) //-> [-5, 2]
   gridTrip( [100, -22], 'L2L15D50U1D9') //=> [83, -80]
   -----------------------------------------------------------------------------*/
-  // Your solution for 28-gridTrip here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 28-gridTrip here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 29-addChecker
   
   Difficulty: Intermediate
@@ -927,13 +911,9 @@ function sayHello() {
   addChecker( [10, 15, 16, 22], 32 ) // => true
   addChecker( [10, 15, 16, 22], 19 ) // => false
   -----------------------------------------------------------------------------*/
-  // Your solution for 29-addChecker here:
-  
-  
-  
-  
-  
-  /*-----------------------------------------------------------------------------
+// Your solution for 29-addChecker here:
+
+/*-----------------------------------------------------------------------------
   Challenge: 30-totalTaskTime
   
   Difficulty: Difficult
@@ -963,8 +943,4 @@ function sayHello() {
   totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
   totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
   -----------------------------------------------------------------------------*/
-  // Your solution for 30- here:
-  
-  
-  
-  
+// Your solution for 30- here:
