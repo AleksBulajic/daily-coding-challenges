@@ -361,6 +361,16 @@ console.log(formatWithPadding(123, '*', 5))
   isPalindrome('') //=> true
   -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
+function isPalindrome(str){
+  const cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const reversedStr = cleanedStr.split('').reverse().join('');
+
+  return cleanedStr === reversedStr;
+
+}
+
+console.log(isPalindrome('A nut for a jar of tuna'))
+
 
 /*-----------------------------------------------------------------------------
   Challenge: 12-hammingDistance
